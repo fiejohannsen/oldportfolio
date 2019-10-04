@@ -23,8 +23,9 @@ html {
 /* ---------- tabbar styling ---------- */
 .tabbar {
   width: 5%;
-  height: 88vh;
-  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,21 +97,22 @@ html {
   display: none;
   background: var(--light-grey);
   animation: fadeIn 0.4s;
-  margin: 3%;
 }
 
 /* ---------- about styling ---------- */
 .content-container {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   position: fixed;
 }
 
 .text-container {
-  width: 50%;
-  height: 85vh;
+  width: 60%;
+  padding-right: 40px;
+  padding-top: 60px;
+  height: 100vh;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -119,7 +121,7 @@ html {
 }
 
 .text-container>h1 {
-  font-size: 75px;
+  font-size: 65px;
   text-align: right;
   width: 30%;
   position: absolute;
@@ -143,8 +145,8 @@ html {
 
 @-webkit-keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(-120%);
-    transform: translateY(-120%);
+    -webkit-transform: translateY(-160%);
+    transform: translateY(-160%);
   }
 
   100% {
@@ -155,8 +157,8 @@ html {
 
 @keyframes slide-bottom {
   0% {
-    -webkit-transform: translateY(-120%);
-    transform: translateY(-120%);
+    -webkit-transform: translateY(-160%);
+    transform: translateY(-160%);
   }
 
   100% {
@@ -199,20 +201,55 @@ html {
 }
 
 .img-container {
-  width: 44%;
-  height: 85vh;
+  width: 40%;
+  height: 100vh;
   background-color: #BC8787;
   position: fixed;
-  right: 3%;
-  -webkit-animation: slide-left 2s both;
-  animation: slide-left 2s both;
+  right: 0;
+  top: 0;
+  /*  -webkit-animation: slide-left 2s both;
+  animation: slide-left 2s both;*/
   animation-delay: 2s;
+  -webkit-animation: scale-up-hor-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2s both;
+  animation: scale-up-hor-right 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 2s both;
+}
+
+@-webkit-keyframes scale-up-hor-right {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+}
+
+@keyframes scale-up-hor-right {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
 }
 
 #Lag_2 {
-  z-index: 1000;
+  z-index: 100;
   position: absolute;
-  max-height: 84vh;
+  max-height: 95vh;
   width: auto;
   bottom: 0;
   right: 0;
@@ -238,8 +275,8 @@ html {
 
 @-webkit-keyframes slide-left {
   0% {
-    -webkit-transform: translateX(750px);
-    transform: translateX(750px);
+    -webkit-transform: translateX(770px);
+    transform: translateX(770px);
   }
 
   100% {
@@ -250,8 +287,8 @@ html {
 
 @keyframes slide-left {
   0% {
-    -webkit-transform: translateX(750px);
-    transform: translateX(750px);
+    -webkit-transform: translateX(790px);
+    transform: translateX(790px);
   }
 
   100% {
@@ -262,8 +299,8 @@ html {
 
 /* ---------- portfolio styling ---------- */
 .text-container1>h1 {
-  font-size: 60px;
-  width: 94%;
+  font-size: 65px;
+  width: 60%;
   position: absolute;
   z-index: 3;
   top: 7%;
@@ -283,9 +320,9 @@ html {
 }
 
 .blob-yellow {
-  margin-left: 300px;
+  margin-left: 50px;
   margin-top: 10px;
-  width: 12%;
+  width: 20%;
   top: 0;
   left: 0;
   position: absolute;
@@ -293,24 +330,23 @@ html {
 
 /* Slideshow container */
 .slideshow-container {
-  width: 94%;
+  width: 100%;
   position: absolute;
-  height: 70vh;
+  height: 100vh;
   bottom: 0;
-  margin-bottom: 3%;
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;
-  height: 70vh;
+  height: 100vh;
 }
 
 .slide1>.img-container2 {
   background-color: #BDD4B3;
   background-image: url(../img/blob-slide1.svg);
-  background-size: 140%;
-  background-position: left;
+  background-size: 280%;
+  background-position: top;
 }
 
 .text-container2>h1 {
@@ -320,7 +356,7 @@ html {
   width: 100%;
   z-index: 3;
   letter-spacing: 0.17em;
-  padding-top: 70px;
+  padding-top: 170px;
 }
 
 .slide2>.img-container2 {
@@ -351,7 +387,8 @@ html {
   justify-content: center;
   align-items: flex-end;
   position: absolute;
-  height: 75vh;
+  height: 100vh;
+  padding-top: 150px;
   width: auto;
   margin: 0 49%;
   z-index: 20;
@@ -452,7 +489,7 @@ html {
 }
 
 .img-container2>img {
-  width: 30%;
+  width: 40%;
 }
 
 /* Style the tab */
@@ -494,7 +531,7 @@ html {
 }
 
 .tabcontent>.bassin7-mobile {
-  width: 45%;
+  width: 62%;
 }
 
 .tabcontent>.bassin7-laptop {
