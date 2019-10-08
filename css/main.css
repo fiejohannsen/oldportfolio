@@ -299,8 +299,8 @@ html {
 
 /* ---------- portfolio styling ---------- */
 .text-container1>h1 {
-  font-size: 65px;
-  width: 60%;
+  font-size: 45px;
+  width: 100%;
   position: absolute;
   z-index: 3;
   top: 7%;
@@ -320,10 +320,9 @@ html {
 }
 
 .blob-yellow {
-  margin-left: 50px;
-  margin-top: 10px;
-  width: 20%;
-  top: 0;
+  margin-left: 250px;
+  width: 35%;
+  top: -350px;
   left: 0;
   position: absolute;
 }
@@ -340,164 +339,110 @@ html {
 .mySlides {
   display: none;
   height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin: auto;
+  height: 100vh;
+  width: 80%;
+  padding-bottom: 2%;
 }
 
-.slide1>.img-container2 {
-  background-color: #BDD4B3;
-  background-image: url(../img/blob-slide1.svg);
-  background-size: 280%;
-  background-position: top;
+.mySlides>.img-container2 {
+  height: 65%;
+}
+
+.mySlides>.text-container2 {
+  text-align: left;
+  height: 65%;
+  color: var(--text-color-dark);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .text-container2>h1 {
   font-size: 20px;
   font-weight: 200;
-  text-align: center;
   width: 100%;
   z-index: 3;
   letter-spacing: 0.17em;
-  padding-top: 170px;
-}
-
-.slide2>.img-container2 {
-  background-color: #25817E;
-  background-image: url(../img/blob-slide2.svg);
-  background-size: 140%;
-  background-position: right;
-}
-
-.slide3>.img-container2 {
-  background-color: #8CA37F;
-  background-image: url(../img/blob-slide3.svg);
-  background-size: 140%;
-  background-position: right;
-}
-
-.slide4>.img-container2 {
-  background-color: #CEAA90;
-  background-image: url(../img/blob-slide4.svg);
-  background-size: 140%;
-  background-position: left;
-}
-
-/* The dots/bullets/indicators */
-.dot-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  position: absolute;
-  height: 100vh;
-  padding-top: 150px;
-  width: auto;
-  margin: 0 49%;
-  z-index: 20;
-}
-
-.dot {
-  cursor: pointer;
-  height: 18px;
-  width: 18px;
-  margin: 3px;
-  background-color: var(--white);
-  border: 1px solid var(--text-color-dark);
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot1.active {
-  background-color: #BDD4B3;
-  border: 1px solid #BDD4B3;
-}
-
-.dot2.active {
-  background-color: #25817E;
-  border: 1px solid #25817E;
-}
-
-.dot3.active {
-  background-color: #8CA37F;
-  border: 1px solid #8CA37F;
-}
-
-.dot4.active {
-  background-color: #CEAA90;
-  border: 1px solid #CEAA90;
-}
-
-.dot5.active {
-  background-color: var(--text-color-dark);
-}
-
-.dot6.active {
-  background-color: var(--text-color-dark);
-}
-
-.dot1:hover {
-  background-color: #BDD4B3;
-  border: 1px solid #BDD4B3;
-}
-
-.dot2:hover {
-  background-color: #25817E;
-  border: 1px solid #25817E;
-}
-
-.dot3:hover {
-  background-color: #8CA37F;
-  border: 1px solid #8CA37F;
-}
-
-.dot4:hover {
-  background-color: #CEAA90;
-  border: 1px solid #CEAA90;
-}
-
-.dot5:hover {
-  background-color: var(--text-color-light);
-}
-
-.dot6:hover {
-  background-color: var(--text-color-light);
-}
-
-.text-container2 {
-  width: 52%;
-  height: 100%;
-  background-color: var(--white);
-  color: var(--text-color-dark);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .text-container2>p {
-  width: 60%;
   font-family: 'Roboto Mono Light', monospace;
-  margin: 0 auto;
   padding: 20px 0px;
   font-size: 12px;
 }
 
-.img-container2 {
-  width: 48%;
-  height: 100%;
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.text-container2>ul {
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
-.img-container2>img {
-  width: 40%;
+.text-container2>ul>li {
+  font-family: 'Roboto Mono Light', monospace;
+  font-size: 12px;
+}
+
+/* Styling af Slide 1 (my plants) */
+.slide1>.img-container2 {
+  width: 30%;
+}
+
+.slide1>.img-container2>img {
+  height: 100%;
+  width: auto;
+}
+
+.slide1>.text-container2 {
+  width: 35%;
+}
+
+/* Styling af Slide 2 (bassin 7) */
+.slide2>.img-container2 {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.slide2>.img-container2>.tabcontent {
+  height: 100%;
+}
+
+.slide2>.img-container2>.tabcontent>.bassin7-mobile {
+  height: 100%;
+  width: auto;
+}
+
+.slide2>.img-container2>.tabcontent>.bassin7-laptop {
+  height: auto;
+  width: 100%;
+}
+
+.slide2>.text-container2 {
+  width: 45%;
 }
 
 /* Style the tab */
-.tab {
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-}
+.tab {}
 
 /* Style the buttons inside the tab */
 .tab button {
@@ -507,39 +452,170 @@ html {
   padding: 2px 2px;
   transition: 0.3s;
   background-color: transparent;
-  color: var(--white);
+  color: var(--text-color-light);
   font-size: 10px;
   margin: 12px;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  color: var(--white);
+  color: var(--text-color-dark);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  color: var(--white);
-  border-bottom: 1px solid var(--white);
+  color: var(--text-color-dark);
+  border-bottom: 1px solid var(--text-color-dark);
 }
 
-/* Style the tab content */
+/* Style af tab content til bassin 7 */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
   border-top: none;
 }
 
-.tabcontent>.bassin7-mobile {
-  width: 62%;
+/* Styling af Slide 3 (klimaspillet) */
+.slide3>.img-container2 {
+  width: 33%;
 }
 
-.tabcontent>.bassin7-laptop {
-  width: 90%;
+.slide3>.img-container2>img {
+  height: 100%;
+  width: auto;
 }
 
-.img-container2>.webdocumentary {
-  width: 90%;
+.slide3>.text-container2 {
+  width: 33%;
+}
+
+/* Styling af Slide 4 (webdocumentary) */
+.slide4>.img-container2 {
+  width: 55%;
+}
+
+.slide4>.text-container2 {
+  width: 45%;
+}
+
+.slide4>.img-container2>img {
+  height: auto;
+  width: 100%;
+}
+
+/* Styling af Slide 5 (amo) */
+.slide5>.img-container2 {
+  width: 55%;
+}
+
+.slide5>.text-container2 {
+  width: 45%;
+}
+
+.slide5>.img-container2>img {
+  height: auto;
+  width: 100%;
+}
+
+/* Styling af Slide 6 (hq) */
+.slide6>.img-container2 {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.slide6>.img-container2>.tabcontent2 {
+  height: 100%;
+}
+
+.slide6>.img-container2>.tabcontent2>.hq-mobile {
+  height: 100%;
+  width: auto;
+}
+
+.slide6>.img-container2>.tabcontent2>.hq-laptop {
+  height: auto;
+  width: 100%;
+}
+
+.slide6>.text-container2 {
+  width: 45%;
+}
+
+/* Styling af Slide 7 (kreabasen) */
+.slide7>.img-container2 {
+  width: 55%;
+}
+
+.slide7>.img-container2>img {
+  width: 100%;
+  height: auto;
+}
+
+.slide7>.text-container2 {
+  width: 45%;
+}
+
+/* Styling af Slide 8 (tinc) */
+.slide8>.img-container2 {
+  width: 55%;
+}
+
+.slide8>.img-container2>img {
+  width: 100%;
+  height: auto;
+}
+
+.slide8>.text-container2 {
+  width: 45%;
+}
+
+/* Styling af Slide 9 (avant garde) */
+.slide9>.img-container2 {
+  width: 60%;
+}
+
+.slide9>.img-container2>img {
+  width: 100%;
+  height: auto;
+}
+
+.slide9>.text-container2 {
+  width: 40%;
+}
+
+/* The dots/bullets/indicators */
+.dot-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 5%;
+  right: 0;
+  z-index: 20;
+}
+
+.dot {
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  margin: 3px;
+  background-color: var(--white);
+  border: 1px solid var(--text-color-light);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.active {
+  background-color: #E6DD98;
+  border: 1px solid #E6DD98;
+}
+
+.dot:hover {
+  background-color: var(--text-color-light);
+  border: 1px solid var(--text-color-light);
 }
 
 /* ---------- animations ---------- */
