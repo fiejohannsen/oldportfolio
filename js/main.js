@@ -1,73 +1,91 @@
-"use strict";
+(function() {
+  'use strict';
 
-// hide all pages
-function hideAllPages() {
-  let pages = document.querySelectorAll(".page");
-  for (let page of pages) {
-    page.style.display = "none";
-  }
-}
+  var section = document.querySelectorAll(".page");
+  var sections = {};
+  var i = 0;
 
-// show page or tab
-function showPage(pageId) {
-  hideAllPages();
-  document.querySelector(`#${pageId}`).style.display = "block";
-  setActiveTab(pageId);
-}
+  Array.prototype.forEach.call(section, function(e) {
+    sections[e.id] = e.offsetTop;
+  });
 
-// sets active tabbar/ menu item
-function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".tabbar a");
-  for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
+  window.onscroll = function() {
+    var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+    for (i in sections) {
+      if (sections[i] <= scrollPosition) {
+        document.querySelector('.activebtn').setAttribute('class', ' ');
+        document.querySelector('a[href*=' + i + ']').setAttribute('class', 'activebtn');
+      }
     }
+  };
+})();
 
-  }
+
+
+// Scroll event on animations
+// Detect request animation frame
+var scroll = window.requestAnimationFrame ||
+  // IE Fallback
+  function(callback) {
+    window.setTimeout(callback, 1000 / 60)
+  };
+var elementsToShow = document.querySelectorAll('.show-on-scroll');
+
+function loop() {
+
+  Array.prototype.forEach.call(elementsToShow, function(element) {
+    if (isElementInViewport(element)) {
+      element.classList.add('is-visible');
+    } else {
+      element.classList.remove('is-visible');
+    }
+  });
+
+  scroll(loop);
 }
 
-// set default page
-function setDefaultPage() {
-  let page = "about";
-  if (location.hash) {
-    page = location.hash.slice(1);
+// Call the loop for the first time
+loop();
+// Helper function from: http://stackoverflow.com/a/7557433/274826
+function isElementInViewport(el) {
+  // special bonus for those using jQuery
+  if (typeof jQuery === "function" && el instanceof jQuery) {
+    el = el[0];
   }
-  showPage(page);
+  var rect = el.getBoundingClientRect();
+  return (
+    (rect.top <= 0 &&
+      rect.bottom >= 0) ||
+    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight)) ||
+    (rect.top >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+  );
 }
 
-setDefaultPage();
 
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1
+// MODALS
+var modalBtns = [...document.querySelectorAll(".button")];
+modalBtns.forEach(function(btn) {
+  btn.onclick = function() {
+    var modal = btn.getAttribute('data-modal');
+    document.getElementById(modal).style.display = "block";
   }
-  if (n < 1) {
-    slideIndex = slides.length
+});
+
+var closeBtns = [...document.querySelectorAll(".close")];
+closeBtns.forEach(function(btn) {
+  btn.onclick = function() {
+    var modal = btn.closest('.modal');
+    modal.style.display = "none";
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+});
+
+window.onclick = function(event) {
+  if (event.target.className === "modal") {
+    event.target.style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "flex";
-  dots[slideIndex - 1].className += " active";
 }
 
 // Tabs
@@ -81,7 +99,7 @@ function openDevice(evt, deviceName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(deviceName).style.display = "block";
+  document.getElementById(deviceName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 
@@ -99,7 +117,7 @@ function openDevice2(evt, deviceName) {
   for (i = 0; i < tablinks2.length; i++) {
     tablinks2[i].className = tablinks2[i].className.replace(" active", "");
   }
-  document.getElementById(deviceName).style.display = "block";
+  document.getElementById(deviceName).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 
